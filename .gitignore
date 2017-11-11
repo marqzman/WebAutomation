@@ -24,6 +24,9 @@ hs_err_pid*
 
 # IDEA
 .idea
+*.iml
+*.ipr
+*.iws
 
 # Gradle
 .gradle
