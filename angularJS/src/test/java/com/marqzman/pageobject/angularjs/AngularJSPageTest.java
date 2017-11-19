@@ -1,8 +1,9 @@
 package com.marqzman.pageobject.angularjs;
 
 import com.marqzman.test.AbstractTest;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -12,8 +13,8 @@ import static org.junit.jupiter.api.Assertions.assertAll;
  * @author Salome Marquez (marquez.salomej@gmail.com)
  * @since 1.0.0
  */
-class AngularJSPageTest extends AbstractTest {
-    private AngularJSPage angularJSPage;
+abstract class AngularJSPageTest extends AbstractTest {
+    protected AngularJSPage angularJSPage;
 
     @BeforeEach
     protected void setUp() throws InstantiationException, IllegalAccessException {
@@ -26,6 +27,7 @@ class AngularJSPageTest extends AbstractTest {
         super.tearDownDriver();
     }
 
+    @Tag("smoke")
     @Test
     public void testPageTitle() throws Exception {
         String actualTitle = angularJSPage.getPageTitle();
