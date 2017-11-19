@@ -15,25 +15,28 @@ allprojects {
     }
 
     ext {
-        seleniumVersion = "3.7.1"
-        webdriverManagerVersion = "1.7.2"
-        log4jVersion = "2.9.1"
-//        junit4Version = "4.12"
-        junitJupiterVersion = "5.0.2"
-        junitPlatformVersion = "1.0.2"
+        seleniumVersion             = "3.7.1"
+        webdriverManagerVersion     = "1.7.2"
+        log4jVersion                = "2.9.1"
+//        junit4Version             = "4.12"
+        junitJupiterVersion         = "5.0.2"
+        junitPlatformVersion        = "1.0.2"
+        assertJVersion              = "3.8.0"
     }
 
     dependencies {
         compile "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
         compile "org.apache.logging.log4j:log4j-api:${log4jVersion}"
         compile "org.apache.logging.log4j:log4j-core:${log4jVersion}"
-
         compile "io.github.bonigarcia:webdrivermanager:${webdriverManagerVersion}"
 
         //  Junit Jupiter API and TestEngine implementation
         testCompile "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
         testRuntime "org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}"
         testRuntime "org.junit.platform:junit-platform-launcher:${junitPlatformVersion}"
+
+        //  AssertJ
+        testCompile "org.assertj:assertj-core:${assertJVersion}"
 
 
         //  If you want to suppert JUnit 4 tests
