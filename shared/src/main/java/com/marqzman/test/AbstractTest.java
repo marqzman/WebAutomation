@@ -2,6 +2,8 @@ package com.marqzman.test;
 
 import com.marqzman.util.Browser;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -12,6 +14,7 @@ import org.openqa.selenium.WebDriver;
  * <p>Provides common functionality useful for setting up a Selenium test.</p>
  */
 public abstract class AbstractTest {
+    private static Logger logger = LogManager.getLogger();
     protected WebDriver driver;
 
     /**
@@ -22,7 +25,10 @@ public abstract class AbstractTest {
      * @throws InstantiationException
      */
     protected void initializeDriver() throws IllegalAccessException, InstantiationException {
-        Browser browser = Browser.fromString(System.getProperty("browser"));
+        String browserProperty = System.getProperty("browser");
+        logger.trace("Starting '{}' browser...", browserProperty);
+
+        Browser browser = Browser.fromString(browserProperty);
         WebDriverManager.getInstance(browser.getDriverClass()).setup();
         this.driver = browser.getDriverClass().newInstance();
     }
@@ -31,6 +37,7 @@ public abstract class AbstractTest {
      * Quits the WebDriver, closing all open windows.
      */
     protected void tearDownDriver() {
+        logger.trace("Closing down browser...");
         if (this.driver != null) {
             this.driver.quit();
         }
