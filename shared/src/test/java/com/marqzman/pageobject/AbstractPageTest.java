@@ -1,12 +1,25 @@
 package com.marqzman.pageobject;
 
-import com.marqzman.AbstractTest;
+import com.marqzman.test.AbstractTest;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AbstractPageTest extends AbstractTest {
+
+    @BeforeEach
+    public void setup() throws InstantiationException, IllegalAccessException {
+        super.initializeDriver();
+    }
+
+    @AfterEach
+    public void tearDown() {
+        super.tearDownDriver();
+    }
+
     @Test
     void getTitle() {
         String expectedTitle = "Google";

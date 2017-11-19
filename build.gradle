@@ -28,7 +28,7 @@ allprojects {
         compile "org.apache.logging.log4j:log4j-api:${log4jVersion}"
         compile "org.apache.logging.log4j:log4j-core:${log4jVersion}"
 
-        testCompile "io.github.bonigarcia:webdrivermanager:${webdriverManagerVersion}"
+        compile "io.github.bonigarcia:webdrivermanager:${webdriverManagerVersion}"
 
         //  Junit Jupiter API and TestEngine implementation
         testCompile "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
