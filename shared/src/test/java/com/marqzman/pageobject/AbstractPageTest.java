@@ -24,7 +24,7 @@ class AbstractPageTest extends AbstractTest {
     void getTitle() {
         String expectedTitle = "Google";
         driver.get("https://www.google.com");
-        String actualTitle = (new AbstractPageImpl(driver)).getTitle();
+        String actualTitle = (new AbstractPageImpl(driver)).getPageTitle();
 
         assertEquals(expectedTitle, actualTitle);
     }

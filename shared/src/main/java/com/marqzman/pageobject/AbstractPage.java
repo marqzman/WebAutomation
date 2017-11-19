@@ -19,7 +19,7 @@ public abstract class AbstractPage {
         return driver;
     }
 
-    public String getTitle() {
+    public String getPageTitle() {
         logger.trace("Reading the page's title...");
         String title = this.getDriver().getTitle();
         logger.debug("Title is '{}'", title);

@@ -28,7 +28,7 @@ class AngularJSPageTest extends AbstractTest {
 
     @Test
     public void testPageTitle() throws Exception {
-        String actualTitle = angularJSPage.getTitle();
+        String actualTitle = angularJSPage.getPageTitle();
         assertAll("AngularJS smoke test",
                 () -> assertThat(actualTitle).contains("AngularJS"),
                 () -> assertThat(actualTitle).contains("Superheroic JavaScript MVW Framework")
